@@ -6,7 +6,6 @@ import { hashPassword } from '../utils/auth';
 
 export const createAcount = async (req: Request, res: Response) => {
 
-    // Manejar errores
     let errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
@@ -36,4 +35,13 @@ export const createAcount = async (req: Request, res: Response) => {
     await user.save();
 
     res.status(201).send('Registro creado correctamnete');
+}
+
+export const login = async (req: Request, res: Response) => {
+    let errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(400).json({errors: errors.array()});
+    }
+
+    
 }
