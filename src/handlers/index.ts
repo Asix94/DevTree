@@ -53,3 +53,12 @@ export const login = async (req: Request, res: Response) => {
 
     res.send(token);
 }
+
+export const getUser = async (req: Request, res: Response) => {
+    const bearer = req.headers.authorization
+
+    if(!bearer) {
+        const error = new Error('No Autorizado');
+        return res.status(401).json({error: error.message})
+    }
+}
